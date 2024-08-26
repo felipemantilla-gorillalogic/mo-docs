@@ -1,4 +1,4 @@
-# Claude Documentation Updater Action
+# Mo Documentation Updater Action
 
 This GitHub Action uses Claude, an AI assistant, to automatically add or update documentation comments in your code when specific labels are applied to a pull request.
 
@@ -18,11 +18,11 @@ This GitHub Action uses Claude, an AI assistant, to automatically add or update 
 
 ### Installation
 
-1. Create a new workflow file (e.g., `.github/workflows/claude-documentation-updater.yml`) in your repository.
+1. Create a new workflow file (e.g., `.github/workflows/mo-documentation-updater.yml`) in your repository.
 2. Copy the following workflow configuration:
 
 ```yaml
-name: Claude Documentation Updater
+name: Mo Documentation Updater
 
 permissions:
   contents: write
@@ -44,15 +44,14 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
       
-      - name: Run Claude Documentation Updater
-        uses: YourGitHubUsername/claude-documentation-updater@main
+      - name: Run Mo Documentation Updater
+        uses: felipemantilla-gorillalogic/mo-docs@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
-          trigger-label: 'update-docs'
+          trigger-label: 'mo-docs'
 ```
 
-3. Replace `YourGitHubUsername` with your GitHub username or organization name.
 
 ### Configuration
 
@@ -67,7 +66,7 @@ jobs:
 ## Usage
 
 1. Create or update a pull request in your repository.
-2. Add the label specified in your workflow file (default is 'update-docs') to the pull request.
+2. Add the label specified in your workflow file (default is 'mo-docs') to the pull request.
 3. The action will automatically run, adding or updating documentation comments in the changed files.
 4. After processing, the action will remove the trigger label.
 
@@ -77,7 +76,7 @@ You can customize the behavior of the action by modifying the inputs in your wor
 
 - `github-token`: The GitHub token used for authentication (default: `${{ secrets.GITHUB_TOKEN }}`)
 - `anthropic-api-key`: Your Anthropic API key for Claude (required)
-- `trigger-label`: The label that triggers the documentation update (default: 'update-docs')
+- `trigger-label`: The label that triggers the documentation update (default: 'mo-docs')
 
 ## Contributing
 

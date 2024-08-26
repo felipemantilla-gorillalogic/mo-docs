@@ -1,20 +1,16 @@
-name: Mo Docs
+name: Mo Documentation Updater
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 on:
   pull_request:
-    types: [opened, edited]
-  pull_request_review_comment:
-    types: [created, edited]
-  issue_comment:
-    types: [created, edited]
-    
+    types: [labeled]
+
 jobs:
-  process-pull-request:
-    name: Process Pull Request
+  update-documentation:
+    name: Update Documentation
     runs-on: ubuntu-latest
     
     steps:
@@ -24,8 +20,9 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
       
-      - name: Run Mo Docs
+      - name: Run Mo Documentation Updater
         uses: felipemantilla-gorillalogic/mo-docs@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          trigger-label: 'update-docs'

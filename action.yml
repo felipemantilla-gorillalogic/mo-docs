@@ -1,0 +1,5 @@
+name: Mo JS Docs creator
+description: 'Create documentation for Mo JS'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

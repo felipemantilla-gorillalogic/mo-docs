@@ -30,8 +30,9 @@ const generateDocPrompt = (fileContent, fileName) => {
     1. Provide the updated code with added documentation comments.
     2. Make sure to add comments for functions, classes, and important variables.
     3. Do not modify the existing code, only add comments.
-    4. Return the updated code as a string.
-    5. Only return the file content
+    4. if the existing code already has comments, you can improve them, change them or add more details.
+    5. Return the updated code as a string.
+    6. Only return the file content
   `;
 };
 

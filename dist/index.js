@@ -33175,16 +33175,30 @@ var generateDocPrompt = (fileContent, fileName) => {
     docType = "appropriate documentation style";
   }
   return `
-    Please add ${docType} comments to the following code. Focus on adding documentation for functions, classes, and important variables. Do not modify the existing code, only add comments. Here's the code:
+    Please add ${docType} documentation comments to the following code. Focus on comprehensive documentation for functions, classes, methods, and significant variables. Do not alter the existing code structure or logic; only add or enhance comments. Here's the code to document:
 
     ${fileContent}
 
+    Guidelines:
     1. Provide the updated code with added documentation comments.
-    2. Make sure to add comments for functions, classes, and important variables.
-    3. Do not modify the existing code, only add comments.
-    4. if the existing code already has comments, you can improve them, change them or add more details.
-    5. Return the updated code as a string.
-    6. Only return the file content
+    2. Add detailed comments for:
+       - Functions: Include purpose, parameters, return values, and any side effects.
+       - Classes: Describe the class purpose, important attributes, and methods.
+       - Methods: Explain functionality, parameters, return values, and any state changes.
+       - Significant variables: Document purpose and usage, especially for complex data structures.
+    3. Maintain the existing code structure and logic; only add or improve comments.
+    4. If comments already exist:
+       - Enhance them with more details if needed.
+       - Correct any inaccuracies.
+       - Ensure consistency in style and depth across all comments.
+    5. Use appropriate documentation syntax for the given language (e.g., JSDoc for JavaScript, docstrings for Python).
+    6. Ensure comments are clear, concise, and provide value to developers reading the code.
+    7. For complex algorithms or business logic, include brief explanations of the approach used.
+    8. Return only the updated file content as a string, without any additional explanations.
+    9. Verify that the updated code is syntactically valid and free of errors introduced by the documentation process.
+    10. If applicable, include examples in the documentation to illustrate usage.
+
+    Please process the code and return the thoroughly documented version.
   `;
 };
 var validateAIContent = (originalContent, aiGeneratedContent) => {
